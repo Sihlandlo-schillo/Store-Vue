@@ -1,10 +1,12 @@
 <template lang="">
     <div>
         {{$store.state.about}}
-        <!-- {{$store.state.education}} -->
+        <section>
+            {{$store.state.education}}
+        </section>
     </div>
-    <div v-for="project in projectData()" :key="project.name">
-        {{project.name}}
+    <div v-for="projects in projectData()" :key="projects.name">
+        {{projects.name}}
     </div>
 </template>
 <script>
@@ -19,14 +21,15 @@ export default {
             // .dispatch to access actions
             // .commit to access mutations
             return this.$store.dispatch('getAbout')
+        },
+        getEducation(){
+            return this.$store.dispatch('getEducation')
         }
-        // getEducation(){
-        //     return this.$tore.dispatch('getEducation')
-        // }
     },
     mounted(){
-        this.getAbout
-        // this.getEducation
+        this.getAbout,
+        this.getEducation,
+        this.getProjects
     }
 }
 </script>

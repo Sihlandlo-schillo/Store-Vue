@@ -5,7 +5,7 @@ export default createStore({
     about:null,
     education:null,
     projects:null,
-    contact:null,
+    contacts:null,
     skills:null,
     testimonials:null
 
@@ -28,8 +28,8 @@ export default createStore({
     setProjects(state,payload){
       state.projects = payload
     },
-    setContact(state,payload){
-      state.contact = payload
+    setContacts(state,payload){
+      state.contacts = payload
     },
     setSkills(state,payload){
       state.skills = payload
@@ -54,14 +54,14 @@ export default createStore({
    async getEducation({commit}){
       let fetchedInfo = await fetch('https://sihlandlo-schillo.github.io/first_api/data/')
       let data = await fetchedInfo.json()
-      let {aboutMe,projects,education,skills,contact} = data
+      let {aboutMe,projects,education,skills,contacts} = data
       console.log(data);
-      commit('setEducation', data.education)
+      commit('setEducation', education)
     commit('setAbout',aboutMe)
     commit('setProjects',projects)
     commit('setEducation',education)
     commit('setSkills',skills)
-    commit('setContact', contact)
+    commit('setContacts', contacts)
     },
   },
   modules: {
